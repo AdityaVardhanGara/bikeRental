@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIZYGO</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">VIZYGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto"></ul> <!-- Empty UL for spacing -->
+            <div class="navbar-nav">
+                <a class="nav-link nav-item-space" href="#explore">Explore</a>
+                <a class="nav-link nav-item-space" href="#aboutSection">About Us</a>
+                <a class="nav-link nav-item-space" href="#footer">Support</a>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-light login-btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Login/Signup</button>
+        </div>
+    </nav>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="src/bike5.jpg" class="d-block w-100" alt="First Slide">
+    </div>
+    <div class="carousel-item">
+      <img src="src/bike5.jpg" class="d-block w-100" alt="Second Slide">
+    </div>
+    <div class="carousel-item">
+      <img src="src/bike5.jpg" class="d-block w-100" alt="Third Slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- <div class="container">
+    <h1 class="mb-4">All Bikes</h1>
+    <div id="bike-list" class="row"></div>
+</div> -->
+
+<div id="explorer" class="container-fluid">
+    <h1 class="mb-4">Most popular bikes</h1>
+    <div class="scrollable-container">
+        <div id="bike-list" class="row"></div>
+    </div>
+    <div class="text-right mt-3">
+        <a href="bikes.html" class="btn btn-success"> >> Show More</a>
+    </div>
+</div>
+
+<div id="scooties" class="container-fluid">
+    <h1 class="mb-4">Most popular scooties</h1>
+    <div class="scrollable-container">
+        <div id="scooty-list" class="row"></div>
+    </div>
+    <div class="text-right mt-3">
+        <a href="scooties.html" class="btn btn-success"> >> Show More</a>
+    </div>
+</div>
+
+<div id="evs" class="container-fluid">
+    <h1 class="mb-4">Most popular EVs</h1>
+    <div class="scrollable-container">
+        <div id="ev-list" class="row"></div>
+    </div>
+    <div class="text-right mt-3">
+        <a href="evs.html" class="btn btn-success"> >> Show More</a>
+    </div>
+</div>
+
+<div id="aboutSection" class="container-fluid py-5">
+    <h1 id="about">About Us</h1>
+    <p>Welcome to <strong>Vizygo</strong>, where we believe that every journey should be easy, affordable, and enjoyable. We understand the challenges faced by commuters, whether it's navigating through traffic, dealing with unreliable public transportation, or struggling to find a convenient and cost-effective mode of travel. That's why we're here to revolutionize the way people move around their cities, one bike ride at a time.</p>
+    <p>At <strong>Vizygo</strong>, we're passionate about creating a more sustainable and accessible transportation solution for everyone. Our mission is simple: to make travel easy and affordable for all, with a special focus on meeting the needs of local and daily commuters. We believe that by offering convenient and reliable bike rental services, we can empower individuals to take control of their daily commute, reduce their carbon footprint, and improve their overall quality of life.</p>
+    <p>We understand that commuting can be a hassle, especially for those who rely on public transportation or personal vehicles. That's why we've created a platform that makes renting a bike quick, convenient, and hassle-free. With just a few taps on your smartphone, you can easily find and rent a bike near you, whether you're heading to work, running errands, or exploring the city.</p>
+    <p>One of the key principles that drive us is affordability. We believe that everyone should have access to affordable transportation options, regardless of their income or background. That's why we offer competitive rental rates and flexible payment options, making it easy for everyone to enjoy the benefits of biking without breaking the bank. By choosing a bike rental from <strong>Vizygo</strong>, you're not only saving money but also contributing to a cleaner, greener environment.</p>
+    <p>But affordability isn't our only focus. We're also committed to providing a seamless and enjoyable experience for our customers. From our user-friendly mobile app to our well-maintained fleet of bikes, we strive to ensure that every aspect of your rental experience is top-notch. Whether you're a seasoned cyclist or a first-time rider, you can trust <strong>Vizygo</strong> to provide you with a safe, reliable, and comfortable ride every time.</p>
+    <p>But our commitment to making travel easy and affordable goes beyond just renting bikes. We're also dedicated to building strong partnerships with local communities, businesses, and organizations to create a more bike-friendly environment for everyone. Whether it's advocating for better bike infrastructure, hosting community events, or partnering with local businesses to offer exclusive discounts to our users, we're always looking for ways to make biking more accessible and enjoyable for all.</p>
+    <p>In conclusion, at <strong>Vizygo</strong>, we're on a mission to make travel easy and affordable for everyone, especially for local and daily commuters. With our convenient bike rental services, competitive rates, and commitment to sustainability, we're paving the way for a brighter, greener future. Join us on this journey and let's make biking the preferred mode of transportation for everyone.</p>
+    
+</div>
+<footer id="footer" class="footer text-light py-5" style="background-color: #FF565F;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Download the app</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-google-play"></i> Play Store</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-apple"></i> Apple Store</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;">About Us</a></li>
+                    <li><a href="#" style="color: white;">Contact Us</a></li>
+                    <li><a href="#" style="color: white;">Policies</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <p><i class="fas fa-phone"></i> +91 9010100300, +91 7353100300</p>
+                <p><i class="fas fa-envelope"></i> support@rentelo.in</p>
+                <p><i class="fas fa-map-marker-alt"></i> Aariz Technologies Pvt Ltd (Rentelo), 1st Main Rd, Madiwala, Mayuri Nagar, BTM Layout 1, Bengaluru, Karnataka 560068.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<script>
+    function redirectToProductPage(bikeName) {
+    // You can construct the URL based on the bikeName or any other parameters
+    const productUrl = './product.html';
+
+    // Redirect to the product page
+    window.location.href = productUrl;
+}
+    function nextSlide(containerId) {
+        const container = document.getElementById(containerId);
+        container.scrollLeft += 200; // Adjust as per your requirement
+    }
+
+    function prevSlide(containerId) {
+        const container = document.getElementById(containerId);
+        container.scrollLeft -= 200; // Adjust as per your requirement
+    }
+    // Fetch bike data from /bikes endpoint
+    fetch('http://localhost:8000/bikes')
+    .then(response => response.json())
+    .then(data => {
+        const maxCardsPerCategory = 4; // Maximum number of cards per category
+        const addedCardsCount = {
+            bike: 0,
+            scooty: 0,
+            ev: 0
+        };
+
+        data.forEach(bike => {
+            const card = `
+            <div class="col-md-3">
+    <div class="card">
+        <div class="card-img-top" style="background-image: url('src/bike6.jpg')"></div>
+        <div class="card-body">
+            <h5 class="card-title">${bike.brand_name} ${bike.model_name}</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="badge badge-pill badge-primary">5 Stars</span>
+                </div>
+                <div>
+                    <h6 class="text-dark" style="margin-bottom: 5px;">₹${bike.price_per_month} / month</h6>
+                    <h8 style="font-size: 10px; color: #FF565F; margin-bottom: 5px;"><b>₹${bike.price_per_day} / day</b></h8>
+
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="location"><i class="fas fa-map-marker-alt"></i> ${bike.city}, ${bike.location}</p>
+                <p id= "availability-${bike.bikeId}" class="availability"><b>${bike.availability}</b></p>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+                <button class="btn btn-primary btn-sm mr-2" data-toggle="modal" onclick="redirectToProductPage('${bike.brand_name} ${bike.model_name}')" data-bike-name="${bike.brand_name} ${bike.model_name}">Check Out</button>
+                <button class="btn btn-danger btn-sm"><i class="fas fa-bell"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            `;
+
+            if (addedCardsCount[bike.category.toLowerCase()] < maxCardsPerCategory) {
+                if (bike.category.toLowerCase() === 'bike') {
+                    document.getElementById('bike-list').innerHTML += card;
+                    addedCardsCount.bike++;
+                } else if (bike.category.toLowerCase() === 'scooty') {
+                    document.getElementById('scooty-list').innerHTML += card;
+                    addedCardsCount.scooty++;
+                } else if (bike.category.toLowerCase() === 'ev') {
+                    document.getElementById('ev-list').innerHTML += card;
+                    addedCardsCount.ev++;
+                }
+                setAvailabilityTextColor(bike.bikeId, bike.availability);
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching bike data:', error);
+    });
+
+
+
+    function setAvailabilityTextColor(bikeId, availability) {
+    const availabilityElement = document.getElementById(`availability-${bikeId}`);
+    if (availabilityElement) {
+        if (availability.toLowerCase() === 'available') {
+            availabilityElement.classList.add('text-success');
+        } else {
+            availabilityElement.classList.add('text-danger');
+        }
+    }}
+    // Update bike name field in modal
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
