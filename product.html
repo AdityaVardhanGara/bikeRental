@@ -195,6 +195,9 @@
     </footer>
     
     <script>
+        if (window.location.pathname.endsWith('index.html')) {
+  window.history.replaceState({}, document.title, window.location.pathname.replace(/index.html$/, 'index'));
+     }
         function updateTotal() {
             var rentalPricePerDay = 30;
             var totalDays = parseInt(document.getElementById("totalDays").innerText);
