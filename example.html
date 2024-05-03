@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIZYGO</title>
+  <!-- Import Materialize CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Import Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for navbar color */
+    nav {
+      background-color: #FF565F !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    /* Static photo */
+    .static-photo {
+      position: relative;
+      width: 100%;
+    }
+    /* Search container */
+    .search-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      width: 60%; /* Set width to 60% of total screen width */
+    }
+    /* Search bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+    .search-bar select {
+      margin-right: 10px;
+    }
+    .search-bar input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+    .search-bar button {
+      background-color: #FF565F;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+    #about {
+      color: #FF565F;
+      font-weight: bold;
+      font-size: 2em; /* Adjust the font size as needed */
+    }
+    #footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #FF565F;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper">
+      <!-- Logo -->
+      <a href="#!" class="brand-logo">VIZYGO</a>
+      <!-- Mobile Menu Trigger -->
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <!-- Desktop Menu -->
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#bikes" class="dropdown-trigger" data-target="dropdown1">Bikes</a></li>
+        <li><a href="#about">About Us</a></li> <!-- Added login button -->
+        <li><a href="#footer">Contact us</a></li>
+        <li><a href="#!">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#">Gear Bikes</a></li>
+    <li><a href="#">Scooties</a></li>
+    <li><a href="#">EVs</a></li>
+  </ul>
+
+  <!-- Mobile Sidenav -->
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="#bikes">Bikes</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#footer">Contact us</a></li>
+    <li><a href="#!">Login</a></li>
+  </ul>
+  <div class="static-photo">
+    <img src="src/bike5.jpg" alt="Static Photo" class="static-photo">
+    <!-- Search Bar -->
+    <div class="container search-container-wrapper">
+      <div class="row">
+        <div class="col s12">
+          <div class="search-container">
+            <form>
+              <div class="input-field col s3">
+                <select>
+                  <option value="place">Place</option>
+                  <option value="color">Color</option>
+                  <option value="type">Type</option>
+                </select>
+                <label>Search By</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="search" type="text" class="validate">
+                <label for="search">Search...</label>
+              </div>
+              <div class="input-field col s3">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                  <i class="material-icons right">search</i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="flex flex-wrap">
+    <!-- Filter Section -->
+    <!-- <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg mb-6"> -->
+      <!-- Filter Section Content -->
+      <!-- Replace with your filter section content -->
+      <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold text-gray-800">FILTER</h2>
+          <button class="text-red-500 hover:text-red-600 focus:outline-none">RESET ALL</button>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-4">Categories</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Scooter" class="mb-2">
+              <span class="text-sm">Scooter</span>
+            </button>
+            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Sports" class="mb-2">
+              <span class="text-sm">Sports</span>
+            </button>
+            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Cruiser" class="mb-2">
+              <span class="text-sm">Cruiser</span>
+            </button>
+            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Commuter" class="mb-2">
+              <span class="text-sm">Commuter</span>
+            </button>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label for="brand" class="block mb-2 font-semibold text-lg">Choose brand</label>
+          <select id="brand" class="w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500">
+            <option selected disabled>Choose brand</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label for="model" class="block mb-2 font-semibold text-lg">Choose model</label>
+          <select id="model" class="w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500">
+            <option selected disabled>Choose model</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <h3 class="font-semibold text-lg mb-2">Transmission type</h3>
+          <div class="flex gap-4">
+            <button class="flex-1 py-2 border border-gray-200 rounded-md transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">Geared</button>
+            <button class="flex-1 py-2 border border-gray-200 rounded-md transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">Gearless</button>
+          </div>
+        </div>
+        <button class="w-full py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300 ease-in-out focus:outline-none">Apply</button>
+      </div>
+      
+    <!-- </div> -->
+  
+    <!-- Right Section -->
+    <div class="flex-1 flex flex-col space-y-6">
+      <!-- Explorer Section -->
+      <div id="explorer" class="container-fluid p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="mb-4 text-lg font-semibold">Most popular bikes</h1>
+        <div class="scrollable-container">
+          <div id="bike-list" class="row"></div>
+        </div>
+        <div class="text-right mt-3">
+          <a href="bikes.html" class="btn btn-success"> >> Show More</a>
+        </div>
+      </div>
+  
+      <!-- Scooties Section -->
+      <div id="scooties" class="container-fluid p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="mb-4 text-lg font-semibold">Most popular scooties</h1>
+        <div class="scrollable-container">
+          <div id="scooty-list" class="row"></div>
+        </div>
+        <div class="text-right mt-3">
+          <a href="scooties.html" class="btn btn-success"> >> Show More</a>
+        </div>
+      </div>
+  
+      <!-- EVs Section -->
+      <div id="evs" class="container-fluid p-6 bg-white shadow-lg rounded-lg">
+        <h1 class="mb-4 text-lg font-semibold">Most popular EVs</h1>
+        <div class="scrollable-container">
+          <div id="ev-list" class="row"></div>
+        </div>
+        <div class="text-right mt-3">
+          <a href="evs.html" class="btn btn-success"> >> Show More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="aboutSection" class="container-fluid py-5 px-4 lg:px-12">
+    <h1 id="about" class="text-4xl font-bold mb-4">About Us</h1>
+    <p class="mb-4">Welcome to <strong class="font-semibold">Vizygo</strong>, where we believe that every journey should be easy, affordable, and enjoyable. We understand the challenges faced by commuters, whether it's navigating through traffic, dealing with unreliable public transportation, or struggling to find a convenient and cost-effective mode of travel. That's why we're here to revolutionize the way people move around their cities, one bike ride at a time.</p>
+    <p class="mb-4">At <strong class="font-semibold">Vizygo</strong>, we're passionate about creating a more sustainable and accessible transportation solution for everyone. Our mission is simple: to make travel easy and affordable for all, with a special focus on meeting the needs of local and daily commuters. We believe that by offering convenient and reliable bike rental services, we can empower individuals to take control of their daily commute, reduce their carbon footprint, and improve their overall quality of life.</p>
+    <p class="mb-4">We understand that commuting can be a hassle, especially for those who rely on public transportation or personal vehicles. That's why we've created a platform that makes renting a bike quick, convenient, and hassle-free. With just a few taps on your smartphone, you can easily find and rent a bike near you, whether you're heading to work, running errands, or exploring the city.</p>
+    <p class="mb-4">One of the key principles that drive us is affordability. We believe that everyone should have access to affordable transportation options, regardless of their income or background. That's why we offer competitive rental rates and flexible payment options, making it easy for everyone to enjoy the benefits of biking without breaking the bank. By choosing a bike rental from <strong class="font-semibold">Vizygo</strong>, you're not only saving money but also contributing to a cleaner, greener environment.</p>
+    <p class="mb-4">But affordability isn't our only focus. We're also committed to providing a seamless and enjoyable experience for our customers. From our user-friendly mobile app to our well-maintained fleet of bikes, we strive to ensure that every aspect of your rental experience is top-notch. Whether you're a seasoned cyclist or a first-time rider, you can trust <strong class="font-semibold">Vizygo</strong> to provide you with a safe, reliable, and comfortable ride every time.</p>
+    <p class="mb-4">But our commitment to making travel easy and affordable goes beyond just renting bikes. We're also dedicated to building strong partnerships with local communities, businesses, and organizations to create a more bike-friendly environment for everyone. Whether it's advocating for better bike infrastructure, hosting community events, or partnering with local businesses to offer exclusive discounts to our users, we're always looking for ways to make biking more accessible and enjoyable for all.</p>
+    <p class="mb-4">In conclusion, at <strong class="font-semibold">Vizygo</strong>, we're on a mission to make travel easy and affordable for everyone, especially for local and daily commuters. With our convenient bike rental services, competitive rates, and commitment to sustainability, we're paving the way for a brighter, greener future. Join us on this journey and let's make biking the preferred mode of transportation for everyone.</p>
+  </div>
+  
+  <div class="flex justify-center space-x-4 p-4">
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-sm">
+      <div class="flex flex-col items-center">
+        <img src="https://placehold.co/100x100" alt="Raju Vallapu" class="rounded-full mb-4" />
+        <h3 class="font-bold">Raju Vallapu</h3>
+        <div class="flex text-yellow-400 mb-4">
+          <span>⭐⭐⭐⭐⭐</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-2">Awesome customer service</h4>
+        <p class="text-zinc-600 text-sm">
+          Awesome customer service and timely response for every query. Special mention for Rentelo
+          for his helping and polite nature towards customer. Would highly recommend Rentelo to
+          everyone in need of two wheelers in Bangalore. Very much satisfied and happy customer.
+        </p>
+      </div>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-sm">
+      <div class="flex flex-col items-center">
+        <img src="https://placehold.co/100x100" alt="Ashish Rao" class="rounded-full mb-4" />
+        <h3 class="font-bold">Ashish Rao</h3>
+        <div class="flex text-yellow-400 mb-4">
+          <span>⭐⭐⭐⭐⭐</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-2">The service was absolutely amazing.</h4>
+        <p class="text-zinc-600 text-sm">
+          The service was absolutely amazing. The vehicle was really useful and the customer support
+          is equally great. Will surely book through Rentelo again.
+        </p>
+      </div>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-sm">
+      <div class="flex flex-col items-center">
+        <img src="https://placehold.co/100x100" alt="Raju Vallapu" class="rounded-full mb-4" />
+        <h3 class="font-bold">Raju Vallapu</h3>
+        <div class="flex text-yellow-400 mb-4">
+          <span>⭐⭐⭐⭐⭐</span>
+        </div>
+        <h4 class="font-semibold text-lg mb-2">I was satisfied from my end.</h4>
+        <p class="text-zinc-600 text-sm">
+          I don't know what happened from others. It was my first experience, I was took bike from
+          this end. Bike condition was fine. Those bike's are new one's. I was satisfied from my end.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white text-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="text-3xl font-bold text-center mb-12">You Made the Right Choice.</h2>
+      <p class="text-center mb-8">
+        Rentelo aims to make bike rental easy and solve India's mobility problems. Starting with 20
+        bikes at one location in 2021, we now have 1000+ bikes at 3 locations in Bangalore, serving
+        our customers with reliable and hassle-free rental services.
+      </p>
+      <div class="flex flex-wrap justify-center gap-10">
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="Customer Support" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">24/7 Customer Support</h3>
+          <p class="text-center">
+            Our support team is available round the clock to assist customers.
+          </p>
+        </div>
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="No Security Deposit" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">No Security Deposit</h3>
+          <p class="text-center">Rent a bike without paying any security deposit upfront.</p>
+        </div>
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="Refund" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">No Questions Asked Refund</h3>
+          <p class="text-center">
+            We ensure customers receive full refund without any questions asked.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">FAQ's</h1>
+      <p class="text-lg mt-4">
+        Get answers to commonly asked questions about Rentelo's bike rental services.
+      </p>
+    </div>
+    <div class="mt-8">
+      <div class="space-y-4">
+        <details class="group">
+          <summary
+            class="flex justify-between items-center p-4 cursor-pointer bg-zinc-100 rounded-lg"
+          >
+            What documents are required?
+            <span class="text-red-500 group-open:rotate-90 transition-transform duration-300">></span>
+          </summary>
+          <p class="px-4 pb-4 pt-2">Please provide a valid ID proof and a driving license.</p>
+        </details>
+        <details class="group">
+          <summary
+            class="flex justify-between items-center p-4 cursor-pointer bg-zinc-100 rounded-lg"
+          >
+            What is the cancellation Policy?
+            <span class="text-red-500 group-open:rotate-90 transition-transform duration-300">></span>
+          </summary>
+          <p class="px-4 pb-4 pt-2">
+            Cancellations made 24 hours before the booking date will be fully refunded.
+          </p>
+        </details>
+        <details class="group">
+          <summary
+            class="flex justify-between items-center p-4 cursor-pointer bg-zinc-100 rounded-lg"
+          >
+            What is the Damage Policy?
+            <span class="text-red-500 group-open:rotate-90 transition-transform duration-300">></span>
+          </summary>
+          <p class="px-4 pb-4 pt-2">
+            Any damages to the bike during the rental period will be charged to the customer.
+          </p>
+        </details>
+        <details class="group" open>
+          <summary
+            class="flex justify-between items-center p-4 cursor-pointer bg-zinc-100 rounded-lg"
+          >
+            What is the Delay Charges?
+            <span class="text-red-500 group-open:rotate-90 transition-transform duration-300">></span>
+          </summary>
+          <p class="px-4 pb-4 pt-2">
+            We understand Bangalore traffic. So we give one hour grace timing. After one hour it will
+            be one complete day charge as per the vehicle.
+          </p>
+        </details>
+      </div>
+    </div>
+  </div>
+  <footer id="footer" class="footer text-light py-5" style="background-color: #FF565F;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Download the app</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-google-play"></i> Play Store</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-apple"></i> Apple Store</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;">About Us</a></li>
+                    <li><a href="#" style="color: white;">Contact Us</a></li>
+                    <li><a href="#" style="color: white;">Policies</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <p><i class="fas fa-phone"></i> +91 9010100300, +91 7353100300</p>
+                <p><i class="fas fa-envelope"></i> support@rentelo.in</p>
+                <p><i class="fas fa-map-marker-alt"></i> Aariz Technologies Pvt Ltd (Rentelo), 1st Main Rd, Madiwala, Mayuri Nagar, BTM Layout 1, Bengaluru, Karnataka 560068.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+  <!-- Import jQuery and Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <!-- Initialize Materialize Components -->
+  <script>
+    fetch('http://localhost:8000/bikes')
+    .then(response => response.json())
+    .then(data => {
+        const maxCardsPerCategory = 4; // Maximum number of cards per category
+        const addedCardsCount = {
+            bike: 0,
+            scooty: 0,
+            ev: 0
+        };
+
+        data.forEach(bike => {
+            const card = `
+            <div class="col-md-3">
+  <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white relative">
+    <img class="w-full" src="src/bike6.jpg" alt="${bike.brand_name} ${bike.model_name}" />
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">${bike.brand_name} ${bike.model_name}</div>
+      <p class="text-zinc-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="px-6 pt-4 pb-2">
+      <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-blue-700 mr-2 mb-2">5 Stars</span>
+      <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_month} / month</span>
+      <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_day} / day</span>
+      <div class="flex items-center">
+        <svg class="fill-current text-green-500 w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-18a8 8 0 100 16 8 8 0 000-16zm1 9H9v5h2V11zm0-4H9V6h2v1z" />
+        </svg>
+        <span class="text-sm text-zinc-700">${bike.city}, ${bike.location}</span>
+      </div>
+      <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700 mr-2 mb-2">${bike.availability}</span>
+    </div>
+    <div class="px-6 pt-4 pb-2 absolute bottom-0 right-0">
+      <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">NOTIFY</button>
+    </div>
+  </div>
+</div>
+
+            `;
+
+            if (addedCardsCount[bike.category.toLowerCase()] < maxCardsPerCategory) {
+                if (bike.category.toLowerCase() === 'bike') {
+                    document.getElementById('bike-list').innerHTML += card;
+                    addedCardsCount.bike++;
+                } else if (bike.category.toLowerCase() === 'scooty') {
+                    document.getElementById('scooty-list').innerHTML += card;
+                    addedCardsCount.scooty++;
+                } else if (bike.category.toLowerCase() === 'ev') {
+                    document.getElementById('ev-list').innerHTML += card;
+                    addedCardsCount.ev++;
+                }
+                setAvailabilityTextColor(bike.bikeId, bike.availability);
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching bike data:', error);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdowns = document.querySelectorAll('.dropdown-trigger');
+      var instances = M.Dropdown.init(dropdowns, {
+        coverTrigger: false
+      });
+      var sideNavs = document.querySelectorAll('.sidenav');
+      var sideNavInstances = M.Sidenav.init(sideNavs);
+    });
+    function setAvailabilityTextColor(bikeId, availability) {
+    const availabilityElement = document.getElementById(`availability-${bikeId}`);
+    if (availabilityElement) {
+        if (availability.toLowerCase() === 'available') {
+            availabilityElement.classList.add('text-success');
+        } else {
+            availabilityElement.classList.add('text-danger');
+        }
+    }}
+    
+  </script>
+</body>
+</html>
