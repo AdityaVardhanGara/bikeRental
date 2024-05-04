@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIZYGO</title>
+  <!-- Import Materialize CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Import Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <style>
+    /* Custom CSS for navbar color */
+    .navbar {
+      height: 80px;
+      background-color: #FF565F; /* Dark background color */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      color: #fff; /* White text color */
+      font-weight: bold;
+      font-size: 24px;
+      margin-left: 20px; /* Adjust margin as needed */
+    }
+
+    .navbar-nav {
+      margin-right: 20px; /* Adjust margin as needed */
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 18px;
+      margin-left: 20px;
+    }
+
+    .login-btn {
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 16px;
+      padding: 8px 20px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #fff;
+      color: #FF565F;
+      transform: scale(1.05); /* Enlarge on hover */
+    }
+
+    .login-btn i {
+      margin-right: 5px;
+    }
+
+    /* Adjustments for mobile */
+    @media (max-width: 768px) {
+      .navbar-brand {
+        margin-left: 0;
+      }
+
+      .navbar-nav {
+        margin: 0;
+      }
+
+      .nav-link {
+        margin: 10px 0;
+      }
+
+      .login-btn {
+        margin: 10px 0;
+      }
+    }
+
+    /* Static photo */
+    .static-photo {
+      position: relative;
+      width: 100%;
+    }
+    /* Search container */
+    .search-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      width: 60%; /* Set width to 60% of total screen width */
+    }
+    /* Search bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+    .search-bar select {
+      margin-right: 10px;
+    }
+    .search-bar input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+    .search-bar button {
+      background-color: #FF565F;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+    #footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #FF565F;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FF565F;">
+  <div class="container">
+    <a class="navbar-brand" href="#">VIZYGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#explore">Explore</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#aboutSection">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Support</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <button class="btn btn-light login-btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Login/Signup</button>
+    </div>
+  </div>
+</nav>
+  
+  <div class="flex flex-wrap">
+    <!-- Filter Section -->
+    <!-- <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg mb-6"> -->
+      <!-- Filter Section Content -->
+      <!-- Replace with your filter section content -->
+      <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-xl font-semibold text-gray-800">FILTER</h2>
+          <button class="text-red-500 hover:text-red-600 focus:outline-none">RESET ALL</button>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg mb-4">Categories</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <button  id="all-button" class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Scooter" class="mb-2">
+              <span class="text-sm">All</span>
+            </button>
+            <button  id="geared-button" class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Sports" class="mb-2">
+              <span class="text-sm">Geared Bikes</span>
+            </button>
+            <button  id="scooties-button" class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Cruiser" class="mb-2">
+              <span class="text-sm">Scooties</span>
+            </button>
+            <button  id="evs-button" class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
+              <img src="https://via.placeholder.com/64" alt="Commuter" class="mb-2">
+              <span class="text-sm">EVs</span>
+            </button>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label for="brand" class="block mb-2 font-semibold text-lg">Choose brand</label>
+          <select id="brand" class="w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500">
+            <option selected disabled>Choose brand</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label for="model" class="block mb-2 font-semibold text-lg">Choose model</label>
+          <select id="model" class="w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500">
+            <option selected disabled>Choose model</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <h3 class="font-semibold text-lg mb-2">Transmission type</h3>
+          <div class="flex gap-4">
+            <button class="flex-1 py-2 border border-gray-200 rounded-md transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">Geared</button>
+            <button class="flex-1 py-2 border border-gray-200 rounded-md transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">Gearless</button>
+          </div>
+        </div>
+        <button class="w-full py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300 ease-in-out focus:outline-none">Apply</button>
+      </div>
+      
+    <!-- </div> -->
+  
+    <!-- Right Section -->
+    <div class="flex-1 flex flex-col space-y-6">
+      <!-- Explorer Section -->
+      <div id="bikes" class="container-fluid p-6 bg-white  rounded-lg">
+        <h1 class="mb-4 text-lg font-semibold">Most popular bikes</h1>
+        <div class="scrollable-container">
+          <div id="bike-list" class="row"></div>
+        </div>
+      </div>
+  
+      <!-- Scooties Section -->
+      <div id="scooties" class="container-fluid p-6 bg-white  rounded-lg">
+        <h1 class="mb-4 text-lg font-semibold">Most popular scooties</h1>
+        <div class="scrollable-container">
+          <div id="scooty-list" class="row"></div>
+        </div>
+      </div>
+  
+      <!-- EVs Section -->
+      <div id="evs" class="container-fluid p-6 bg-white  rounded-lg">
+        <h1 class="mb-4 text-lg font-semibold">Most popular EVs</h1>
+        <div class="scrollable-container">
+          <div id="ev-list" class="row"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bg-white text-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="text-3xl font-bold text-center mb-12">You Made the Right Choice.</h2>
+      <p class="text-center mb-8">
+        Rentelo aims to make bike rental easy and solve India's mobility problems. Starting with 20
+        bikes at one location in 2021, we now have 1000+ bikes at 3 locations in Bangalore, serving
+        our customers with reliable and hassle-free rental services.
+      </p>
+      <div class="flex flex-wrap justify-center gap-10">
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="Customer Support" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">24/7 Customer Support</h3>
+          <p class="text-center">
+            Our support team is available round the clock to assist customers.
+          </p>
+        </div>
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="No Security Deposit" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">No Security Deposit</h3>
+          <p class="text-center">Rent a bike without paying any security deposit upfront.</p>
+        </div>
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="Refund" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">No Questions Asked Refund</h3>
+          <p class="text-center">
+            We ensure customers receive full refund without any questions asked.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer id="footer" class="footer text-light py-5" style="background-color: #FF565F;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Download the app</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-google-play"></i> Play Store</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-apple"></i> Apple Store</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;">About Us</a></li>
+                    <li><a href="#" style="color: white;">Contact Us</a></li>
+                    <li><a href="#" style="color: white;">Policies</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <p><i class="fas fa-phone"></i> +91 9010100300, +91 7353100300</p>
+                <p><i class="fas fa-envelope"></i> support@rentelo.in</p>
+                <p><i class="fas fa-map-marker-alt"></i> Aariz Technologies Pvt Ltd (Rentelo), 1st Main Rd, Madiwala, Mayuri Nagar, BTM Layout 1, Bengaluru, Karnataka 560068.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+  <!-- Import jQuery and Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <!-- Initialize Materialize Components -->
+  <script>
+    fetch('http://localhost:8000/bikes')
+    .then(response => response.json())
+    .then(data => {
+        // const maxCardsPerCategory = 4; // Maximum number of cards per category
+        const addedCardsCount = {
+            bike: 0,
+            scooty: 0,
+            ev: 0
+        };
+
+        data.forEach(bike => {
+            const card = `
+            <div class="col-md-4 mb-4"> <!-- Added mb-4 class for bottom margin -->
+  <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white relative py-4"> <!-- Added py-4 class for vertical padding -->
+    <img class="w-full" src="src/bike6.jpg" alt="${bike.brand_name} ${bike.model_name}" />
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">${bike.brand_name} <span class="text-green-500">${bike.model_name}</span></div>
+      <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="px-6 pt-4 pb-2 flex justify-between">
+      <div>
+        <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-blue-700 mr-2 mb-2">5 Stars</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_month} / month</span>
+      </div>
+      <div class="flex flex-wrap">
+        <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700 mr-2 mb-2">${bike.availability}</span>
+        <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_day} / day</span>
+      </div>
+    </div>
+    <div class="px-6">
+      <div class="flex items-center">
+        <svg class="fill-current text-green-500 w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-18a8 8 0 100 16 8 8 0 000-16zm1 9H9v5h2V11zm0-4H9V6h2v1z" />
+        </svg>
+        <span class="text-sm text-gray-700">${bike.city}, ${bike.location}</span>
+      </div>
+    </div>
+    <hr class="border-t-2 border-gray-200 mx-6 my-4"> <!-- Added spacing and thicker border -->
+    <div class="flex justify-between px-6 py-2">
+        <button class="btn btn-primary btn-sm mr-2 checkout-btn" data-bike-details='${JSON.stringify(bike)}'>Check Out</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">NOTIFY</button>
+    </div>
+  </div>
+</div>
+            `;
+
+            // if (addedCardsCount[bike.category.toLowerCase()] < maxCardsPerCategory) {
+                if (bike.category.toLowerCase() === 'bike') {
+                    document.getElementById('bike-list').innerHTML += card;
+                    addedCardsCount.bike++;
+                } else if (bike.category.toLowerCase() === 'scooty') {
+                    document.getElementById('scooty-list').innerHTML += card;
+                    addedCardsCount.scooty++;
+                } else if (bike.category.toLowerCase() === 'ev') {
+                    document.getElementById('ev-list').innerHTML += card;
+                    addedCardsCount.ev++;
+                }
+                setAvailabilityTextColor(bike.bikeId, bike.availability);
+                document.querySelectorAll('.checkout-btn').forEach(button => {
+        console.log('on click added button clicked');
+        button.addEventListener('click', function() {
+            console.log('Checkout button clicked');
+            const bikeDetailsString = this.getAttribute('data-bike-details');
+            if (bikeDetailsString) {
+                localStorage.setItem('bikeDetails', bikeDetailsString);
+                window.location.href = 'prod.html'; // Redirect to the product page
+            }
+        });
+    });
+            // }
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching bike data:', error);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var dropdowns = document.querySelectorAll('.dropdown-trigger');
+      var instances = M.Dropdown.init(dropdowns, {
+        coverTrigger: false
+      });
+      var sideNavs = document.querySelectorAll('.sidenav');
+      var sideNavInstances = M.Sidenav.init(sideNavs);
+
+
+      const allButton = document.querySelector('#all-button');
+      const gearedButton = document.querySelector('#geared-button');
+      const scootiesButton = document.querySelector('#scooties-button');
+      const evsButton = document.querySelector('#evs-button');
+      
+      const bikesSection = document.querySelector('#bikes');
+      const scootiesSection = document.querySelector('#scooties');
+      const evsSection = document.querySelector('#evs');
+  
+      // Function to toggle sections based on button clicked
+      function toggleSections(sectionToShow) {
+        // Hide all sections
+        bikesSection.style.display = 'none';
+        scootiesSection.style.display = 'none';
+        evsSection.style.display = 'none';
+  
+        // Show the specified section
+        sectionToShow.style.display = 'block';
+      }
+  
+      // Function to handle button click
+      // Function to handle button click
+function handleButtonClick(button, section) {
+  // Toggle the clicked state of the button
+  const isClicked = button.classList.toggle('clicked');
+
+  // If button is clicked, show its section and unclick other buttons
+  if (isClicked) {
+    toggleSections(section);
+
+    // Unclick other buttons
+    const otherButtons = [allButton, gearedButton, scootiesButton, evsButton].filter(btn => btn !== button);
+    otherButtons.forEach(btn => btn.classList.remove('clicked'));
+  } else { // If button is unclicked, show all sections
+    if (allButton.classList.contains('clicked')) {
+      toggleSections(section);
+    } else {
+      // Show all sections
+      toggleSections(bikesSection);
+      toggleSections(scootiesSection);
+      toggleSections(evsSection);
+    }
+  }
+}
+
+  
+      // Add click event listeners to buttons
+      allButton.addEventListener('click', function() {
+        handleButtonClick(allButton, bikesSection);
+      });
+  
+      gearedButton.addEventListener('click', function() {
+        handleButtonClick(gearedButton, bikesSection);
+      });
+  
+      scootiesButton.addEventListener('click', function() {
+        handleButtonClick(scootiesButton, scootiesSection);
+      });
+  
+      evsButton.addEventListener('click', function() {
+        handleButtonClick(evsButton, evsSection);
+      });
+
+      
+
+    });
+    function setAvailabilityTextColor(bikeId, availability) {
+    const availabilityElement = document.getElementById(`availability-${bikeId}`);
+    if (availabilityElement) {
+        if (availability.toLowerCase() === 'available') {
+            availabilityElement.classList.add('text-success');
+        } else {
+            availabilityElement.classList.add('text-danger');
+        }
+    }}
+
+
+  </script>
+  
+</body>
+</html>

@@ -6,20 +6,80 @@
   <title>VIZYGO</title>
   <!-- Import Materialize CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <!-- Import Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  
   <style>
     /* Custom CSS for navbar color */
-    nav {
-      background-color: #FF565F !important;
-      padding-left: 20px;
-      padding-right: 20px;
+    .navbar {
+      height: 80px;
+      background-color: #FF565F; /* Dark background color */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
+    .navbar-brand {
+      color: #fff; /* White text color */
+      font-weight: bold;
+      font-size: 24px;
+      margin-left: 20px; /* Adjust margin as needed */
+    }
+
+    .navbar-nav {
+      margin-right: 20px; /* Adjust margin as needed */
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 18px;
+      margin-left: 20px;
+    }
+
+    .login-btn {
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 16px;
+      padding: 8px 20px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #fff;
+      color: #FF565F;
+      transform: scale(1.05); /* Enlarge on hover */
+    }
+
+    .login-btn i {
+      margin-right: 5px;
+    }
+
+    /* Adjustments for mobile */
+    @media (max-width: 768px) {
+      .navbar-brand {
+        margin-left: 0;
+      }
+
+      .navbar-nav {
+        margin: 0;
+      }
+
+      .nav-link {
+        margin: 10px 0;
+      }
+
+      .login-btn {
+        margin: 10px 0;
+      }
+    }
+
     /* Static photo */
     .static-photo {
       position: relative;
@@ -58,58 +118,52 @@
       padding: 5px 15px;
       cursor: pointer;
     }
-    #about {
-      color: #FF565F;
-      font-weight: bold;
-      font-size: 2em; /* Adjust the font size as needed */
-    }
     #footer {
     bottom: 0;
     width: 100%;
     background-color: #FF565F;
     }
+
+  
+
   </style>
 </head>
 <body>
   
   <!-- Navbar -->
-  <nav>
-    <div class="nav-wrapper">
-      <!-- Logo -->
-      <a href="#!" class="brand-logo">VIZYGO</a>
-      <!-- Mobile Menu Trigger -->
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <!-- Desktop Menu -->
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#bikes" class="dropdown-trigger" data-target="dropdown1">Bikes</a></li>
-        <li><a href="#about">About Us</a></li> <!-- Added login button -->
-        <li><a href="#footer">Contact us</a></li>
-        <li><a href="#!">Login</a></li>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FF565F;">
+  <div class="container">
+    <a class="navbar-brand" href="#">VIZYGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#explore">Explore</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#aboutSection">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Support</a>
+        </li>
       </ul>
     </div>
-  </nav>
+    <div>
+      <button class="btn btn-light login-btn" onclick="openModal()"><i class="fa fa-sign-in" aria-hidden="true"></i> Login/Signup</button>
+    </div>
+  </div>
+</nav>
 
-  <!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#">Gear Bikes</a></li>
-    <li><a href="#">Scooties</a></li>
-    <li><a href="#">EVs</a></li>
-  </ul>
-
-  <!-- Mobile Sidenav -->
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="#bikes">Bikes</a></li>
-    <li><a href="#about">About Us</a></li>
-    <li><a href="#footer">Contact us</a></li>
-    <li><a href="#!">Login</a></li>
-  </ul>
   <div class="static-photo">
     <img src="src/bike5.jpg" alt="Static Photo" class="static-photo">
     <!-- Search Bar -->
     <div class="container search-container-wrapper">
       <div class="row">
         <div class="col s12">
-          <div class="search-container">
+          <div class="search-container" style="background-color: rgba(169, 169, 169, 0.5);">
             <form>
               <div class="input-field col s3">
                 <select>
@@ -133,67 +187,14 @@
         </div>
       </div>
     </div>
+    
   </div>
   
   <div class="flex flex-wrap">
-    <!-- Filter Section -->
-    <!-- <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg mb-6"> -->
-      <!-- Filter Section Content -->
-      <!-- Replace with your filter section content -->
-      <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="text-xl font-semibold text-gray-800">FILTER</h2>
-          <button class="text-red-500 hover:text-red-600 focus:outline-none">RESET ALL</button>
-        </div>
-        <div>
-          <h3 class="font-semibold text-lg mb-4">Categories</h3>
-          <div class="grid grid-cols-2 gap-4">
-            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
-              <img src="https://via.placeholder.com/64" alt="Scooter" class="mb-2">
-              <span class="text-sm">Scooter</span>
-            </button>
-            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
-              <img src="https://via.placeholder.com/64" alt="Sports" class="mb-2">
-              <span class="text-sm">Sports</span>
-            </button>
-            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
-              <img src="https://via.placeholder.com/64" alt="Cruiser" class="mb-2">
-              <span class="text-sm">Cruiser</span>
-            </button>
-            <button class="p-4 border border-gray-200 rounded-lg flex flex-col items-center transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">
-              <img src="https://via.placeholder.com/64" alt="Commuter" class="mb-2">
-              <span class="text-sm">Commuter</span>
-            </button>
-          </div>
-        </div>
-        <div class="mb-6">
-          <label for="brand" class="block mb-2 font-semibold text-lg">Choose brand</label>
-          <select id="brand" class="w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500">
-            <option selected disabled>Choose brand</option>
-          </select>
-        </div>
-        <div class="mb-6">
-          <label for="model" class="block mb-2 font-semibold text-lg">Choose model</label>
-          <select id="model" class="w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500">
-            <option selected disabled>Choose model</option>
-          </select>
-        </div>
-        <div class="mb-6">
-          <h3 class="font-semibold text-lg mb-2">Transmission type</h3>
-          <div class="flex gap-4">
-            <button class="flex-1 py-2 border border-gray-200 rounded-md transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">Geared</button>
-            <button class="flex-1 py-2 border border-gray-200 rounded-md transition duration-300 ease-in-out hover:bg-gray-100 focus:outline-none">Gearless</button>
-          </div>
-        </div>
-        <button class="w-full py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300 ease-in-out focus:outline-none">Apply</button>
-      </div>
-      
-    <!-- </div> -->
-  
     <!-- Right Section -->
     <div class="flex-1 flex flex-col space-y-6">
       <!-- Explorer Section -->
-      <div id="explorer" class="container-fluid p-6 bg-white shadow-lg rounded-lg">
+      <div id="explorer" class="container-fluid p-6 bg-white  rounded-lg">
         <h1 class="mb-4 text-lg font-semibold">Most popular bikes</h1>
         <div class="scrollable-container">
           <div id="bike-list" class="row"></div>
@@ -204,7 +205,7 @@
       </div>
   
       <!-- Scooties Section -->
-      <div id="scooties" class="container-fluid p-6 bg-white shadow-lg rounded-lg">
+      <div id="scooties" class="container-fluid p-6 bg-white  rounded-lg">
         <h1 class="mb-4 text-lg font-semibold">Most popular scooties</h1>
         <div class="scrollable-container">
           <div id="scooty-list" class="row"></div>
@@ -215,7 +216,7 @@
       </div>
   
       <!-- EVs Section -->
-      <div id="evs" class="container-fluid p-6 bg-white shadow-lg rounded-lg">
+      <div id="evs" class="container-fluid p-6 bg-white  rounded-lg">
         <h1 class="mb-4 text-lg font-semibold">Most popular EVs</h1>
         <div class="scrollable-container">
           <div id="ev-list" class="row"></div>
@@ -405,7 +406,27 @@
         </div>
     </div>
 </footer>
-  
+<!-- The modal -->
+<div id="loginModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-1/2">
+    <div class="mb-4">
+      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+      <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+    </div>
+    <div class="mb-4">
+      <label for="mobile" class="block text-sm font-medium text-gray-700">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" class="mt-1 block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+    </div>
+    <div id="otpField" class="mb-4 hidden">
+      <label for="otp" class="block text-sm font-medium text-gray-700">OTP</label>
+      <input type="text" id="otp" name="otp" class="mt-1 block w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+    </div>
+    <button id="generateOTPBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" onclick="generateOTP()">Generate OTP</button>
+    <button id="submitBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 hidden" onclick="submitForm()">Submit</button>
+    <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md ml-2" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
   <!-- Import jQuery and Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -428,23 +449,32 @@
   <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white relative">
     <img class="w-full" src="src/bike6.jpg" alt="${bike.brand_name} ${bike.model_name}" />
     <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">${bike.brand_name} ${bike.model_name}</div>
-      <p class="text-zinc-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="font-bold text-xl mb-2">${bike.brand_name} <span class="text-green-500">${bike.model_name}</span></div>
+      <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
-    <div class="px-6 pt-4 pb-2">
-      <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-blue-700 mr-2 mb-2">5 Stars</span>
-      <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_month} / month</span>
-      <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_day} / day</span>
+    <div class="px-6 pt-4 pb-2 flex justify-between">
+      <div>
+        <span class="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-blue-700 mr-2 mb-2">5 Stars</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_month} / month</span>
+
+      </div>
+      <div class="flex flex-wrap">
+        <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700 mr-2 mb-2">${bike.availability}</span>
+        <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_day} / day</span>
+      </div>
+    </div>
+    <div class="px-6">
       <div class="flex items-center">
         <svg class="fill-current text-green-500 w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-18a8 8 0 100 16 8 8 0 000-16zm1 9H9v5h2V11zm0-4H9V6h2v1z" />
         </svg>
-        <span class="text-sm text-zinc-700">${bike.city}, ${bike.location}</span>
+        <span class="text-sm text-gray-700">${bike.city}, ${bike.location}</span>
       </div>
-      <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700 mr-2 mb-2">${bike.availability}</span>
     </div>
-    <div class="px-6 pt-4 pb-2 absolute bottom-0 right-0">
-      <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">NOTIFY</button>
+    <hr class="border-t-2 border-gray-200 mx-6 my-4"> <!-- Added spacing and thicker border -->
+    <div class="flex justify-between px-6 py-2">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">CHECK OUT</button>
+      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">NOTIFY</button>
     </div>
   </div>
 </div>
@@ -488,6 +518,29 @@
         }
     }}
     
+
+    // Function to open the modal
+function openModal() {
+  document.getElementById('loginModal').classList.remove('hidden');
+}
+
+// Function to close the modal
+function closeModal() {
+  document.getElementById('loginModal').classList.add('hidden');
+}
+
+// Function to generate OTP
+function generateOTP() {
+  document.getElementById('otpField').classList.remove('hidden');
+  document.getElementById('generateOTPBtn').classList.add('hidden');
+  document.getElementById('submitBtn').classList.remove('hidden');
+}
+
+// Function to submit the form
+function submitForm() {
+  // Add your form submission logic here
+}
+
   </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import date, datetime
 import firebase_admin
 from firebase_admin import credentials, db
+from twilio.rest import Client
 import random
 import string
 
@@ -15,7 +16,9 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],  # Allow all methods
     allow_headers=["*"],  # Allow all headers
 )
-
+TWILIO_ACCOUNT_SID = "AC313674a11bf68e2452c39a258ffcd7b3"
+TWILIO_AUTH_TOKEN = "ab9972bd991456f4930757cad233ffe3"
+TWILIO_PHONE_NUMBER = "+12622870723"
 # Initialize Firebase Admin SDK (replace 'path/to/serviceAccountKey.json' with the path to your Firebase service account key file)
 cred = credentials.Certificate('vizigo-a97d2-8361e3913135.json')
 firebase_admin.initialize_app(cred, {
@@ -143,7 +146,39 @@ async def get_bike_details():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+class OTPRequest(BaseModel):
+    name: str
+    mobile: str
 
+def send_sms(message, to):
+    client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    client.messages.create(
+        body=message,
+        from_=TWILIO_PHONE_NUMBER,
+        to=to
+    )
+
+def generate_otp():
+    return ''.join(random.choices(string.digits, k=6))
+
+def save_otp_data(name, mobile, otp):
+    ref = db.reference('otp_requests')
+    ref.push({
+        "name": name,
+        "mobile": mobile,
+        "otp": otp,
+        "timestamp": datetime.now().isoformat()
+    })
+@app.post("/send-otp/")
+async def send_otp(request: OTPRequest):
+    otp = generate_otp()
+    try:
+        message = f"Your OTP is: {otp}" 
+        send_sms(message, "+91" + request.mobile)
+        save_otp_data(request.name, request.mobile, otp)
+        return {"message": "OTP sent successfully", "otp": otp}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
     import uvicorn

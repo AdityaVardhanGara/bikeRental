@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIZYGO</title>
+  <!-- Import Materialize CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Import Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <style>
+    /* Custom CSS for navbar color */
+    .navbar {
+      height: 80px;
+      background-color: #FF565F; /* Dark background color */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      color: #fff; /* White text color */
+      font-weight: bold;
+      font-size: 24px;
+      margin-left: 20px; /* Adjust margin as needed */
+    }
+
+    .navbar-nav {
+      margin-right: 20px; /* Adjust margin as needed */
+    }
+
+    .nav-link {
+      color: #fff;
+      font-size: 18px;
+      margin-left: 20px;
+    }
+
+    .login-btn {
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 16px;
+      padding: 8px 20px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #fff;
+      color: #FF565F;
+      transform: scale(1.05); /* Enlarge on hover */
+    }
+
+    .login-btn i {
+      margin-right: 5px;
+    }
+
+    /* Adjustments for mobile */
+    @media (max-width: 768px) {
+      .navbar-brand {
+        margin-left: 0;
+      }
+
+      .navbar-nav {
+        margin: 0;
+      }
+
+      .nav-link {
+        margin: 10px 0;
+      }
+
+      .login-btn {
+        margin: 10px 0;
+      }
+    }
+
+    /* Static photo */
+    .static-photo {
+      position: relative;
+      width: 100%;
+    }
+    /* Search container */
+    .search-container {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+      width: 60%; /* Set width to 60% of total screen width */
+    }
+    /* Search bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+    .search-bar select {
+      margin-right: 10px;
+    }
+    .search-bar input[type="text"] {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+    .search-bar button {
+      background-color: #FF565F;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+    #footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #FF565F;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FF565F;">
+  <div class="container">
+    <a class="navbar-brand" href="#">VIZYGO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#explore">Explore</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#aboutSection">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Support</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <button class="btn btn-light login-btn"><i class="fa fa-sign-in" aria-hidden="true"></i> Login/Signup</button>
+    </div>
+  </div>
+</nav>
+<div class="container mx-auto px-6 py-8">
+    <div class="grid grid-cols-3 gap-6">
+        <div class="col-span-2">
+            <div class="max-w-full bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <div class="md:flex">
+                    <div class="md:flex-shrink-0 w-full md:w-1/2">
+                        <img class="h-64 w-full object-cover" src="src/bike6.jpg" alt="Mountain Bike">
+                    </div>
+                    <div class="p-8 w-full md:w-1/2" id="product-details">
+                        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold" id="bike-name"></div>
+                        <p class="mt-2 text-gray-600" id="bike-location"></p>
+                        <p class="mt-2 text-green-500" id="bike-availability"></p>
+                        <p class="mt-4" id="bike-price"></p>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-1">
+            <div class="max-w-full bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <div class="p-8">
+                    <h2 class="text-center mb-4 text-xl font-semibold">Booking Details</h2>
+                    <div class="flex justify-between">
+                        <div class="text-gray-600">Monthly Rate:</div>
+                        <div class="text-gray-800">$8000</div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <div class="text-gray-600">IGST (14% of Monthly Rate):</div>
+                        <div class="text-gray-800">$1120</div>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <div class="text-gray-600">CGST (14% of Monthly Rate):</div>
+                        <div class="text-gray-800">$1120</div>
+                    </div>
+                    <hr class="mt-4 mb-2 border-t-2 border-gray-300">
+                    <div class="flex justify-between">
+                        <div class="text-lg font-semibold">Total:</div>
+                        <div class="text-lg font-semibold">$1270</div>
+                    </div>
+                    <div class="mt-4">
+                        <button id="checkoutButton" class="w-full px-4 py-2 bg-blue-500 text-white rounded-lg focus:outline-none focus:bg-blue-700 hover:bg-blue-700">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-8">
+        <div class="bg-white rounded-xl p-6">
+            <div class="w-2/3 pr-6">
+            <h3 class="text-xl font-semibold mb-4">Terms & Conditions</h3>
+    
+            <!-- General Conditions -->
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold mb-2">General Conditions:</h4>
+                <ul class="list-disc pl-6">
+                    <li class="text-gray-600">The minimum booking period for rental bikes is one month.</li>
+                    <li class="text-gray-600">If a customer decides to return the vehicle before the completion of one month, no refund will be provided for the remaining period.</li>
+                    <li class="text-gray-600">In the event of early termination after the first month, the rental charges will be calculated based on the number of days the vehicle was used, and any remaining amount will be refunded accordingly.</li>
+                    <li class="text-gray-600">Customers are advised to thoroughly inspect the condition of the vehicle before taking possession. Any pre-existing damages or discrepancies should be documented and brought to the attention of the rental company to avoid disputes later.</li>
+                </ul>
+            </div>
+    
+           
+    
+            <!-- Safety & Usage, Damages & Charges, Support -->
+            <div id="more-terms" class="hidden">
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-2">Safety & Usage:</h4>
+                    <ul class="list-disc pl-6">
+                        <li class="text-gray-600">The minimum booking period for rental bikes is one month.</li>
+                    <li class="text-gray-600">If a customer decides to return the vehicle before the completion of one month, no refund will be provided for the remaining period.</li>
+                    <li class="text-gray-600">In the event of early termination after the first month, the rental charges will be calculated based on the number of days the vehicle was used, and any remaining amount will be refunded accordingly.</li>
+                    <li class="text-gray-600">Customers are advised to thoroughly inspect the condition of the vehicle before taking possession. Any pre-existing damages or discrepancies should be documented and brought to the attention of the rental company to avoid disputes later.</li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-2">Damages & Charges:</h4>
+                    <ul class="list-disc pl-6">
+                        <li class="text-gray-600">The minimum booking period for rental bikes is one month.</li>
+                        <li class="text-gray-600">If a customer decides to return the vehicle before the completion of one month, no refund will be provided for the remaining period.</li>
+                        <li class="text-gray-600">In the event of early termination after the first month, the rental charges will be calculated based on the number of days the vehicle was used, and any remaining amount will be refunded accordingly.</li>
+                        <li class="text-gray-600">Customers are advised to thoroughly inspect the condition of the vehicle before taking possession. Any pre-existing damages or discrepancies should be documented and brought to the attention of the rental company to avoid disputes later.</li>
+                    </ul>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-lg font-semibold mb-2">Support:</h4>
+                    <ul class="list-disc pl-6">
+                        <li class="text-gray-600">The minimum booking period for rental bikes is one month.</li>
+                        <li class="text-gray-600">If a customer decides to return the vehicle before the completion of one month, no refund will be provided for the remaining period.</li>
+                        <li class="text-gray-600">In the event of early termination after the first month, the rental charges will be calculated based on the number of days the vehicle was used, and any remaining amount will be refunded accordingly.</li>
+                        <li class="text-gray-600">Customers are advised to thoroughly inspect the condition of the vehicle before taking possession. Any pre-existing damages or discrepancies should be documented and brought to the attention of the rental company to avoid disputes later.</li>
+                    </ul>
+                </div>
+                 <!-- Read More Button -->
+            </div>
+            <div class="text-center mb-6">
+                <button id="read-more-btn" class="text-blue-500 font-semibold focus:outline-none">Read More</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+</div>
+
+
+      
+  
+  <div class="bg-white text-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h2 class="text-3xl font-bold text-center mb-12">You Made the Right Choice.</h2>
+      <p class="text-center mb-8">
+        Rentelo aims to make bike rental easy and solve India's mobility problems. Starting with 20
+        bikes at one location in 2021, we now have 1000+ bikes at 3 locations in Bangalore, serving
+        our customers with reliable and hassle-free rental services.
+      </p>
+      <div class="flex flex-wrap justify-center gap-10">
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="Customer Support" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">24/7 Customer Support</h3>
+          <p class="text-center">
+            Our support team is available round the clock to assist customers.
+          </p>
+        </div>
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="No Security Deposit" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">No Security Deposit</h3>
+          <p class="text-center">Rent a bike without paying any security deposit upfront.</p>
+        </div>
+        <div class="max-w-sm">
+          <img src="https://placehold.co/100x100" alt="Refund" class="mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-center mb-2">No Questions Asked Refund</h3>
+          <p class="text-center">
+            We ensure customers receive full refund without any questions asked.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer id="footer" class="footer text-light py-5" style="background-color: #FF565F;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>Download the app</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-google-play"></i> Play Store</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-apple"></i> Apple Store</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Company</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;">About Us</a></li>
+                    <li><a href="#" style="color: white;">Contact Us</a></li>
+                    <li><a href="#" style="color: white;">Policies</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Follow Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" style="color: white;"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#" style="color: white;"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <p><i class="fas fa-phone"></i> +91 9010100300, +91 7353100300</p>
+                <p><i class="fas fa-envelope"></i> support@rentelo.in</p>
+                <p><i class="fas fa-map-marker-alt"></i> Aariz Technologies Pvt Ltd (Rentelo), 1st Main Rd, Madiwala, Mayuri Nagar, BTM Layout 1, Bengaluru, Karnataka 560068.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+  <!-- Import jQuery and Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    const readMoreBtn = document.getElementById('read-more-btn');
+    const moreTerms = document.getElementById('more-terms');
+
+    readMoreBtn.addEventListener('click', function() {
+        moreTerms.classList.toggle('hidden');
+        if (moreTerms.classList.contains('hidden')) {
+            readMoreBtn.innerText = 'Read More';
+        } else {
+            readMoreBtn.innerText = 'Read Less';
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve bike details from local storage
+    const bikeDetailsString = localStorage.getItem('bikeDetails');
+    if (bikeDetailsString) {
+        const bikeDetails = JSON.parse(bikeDetailsString);
+
+        // Extract required details
+        const brandModel = `${bikeDetails.brand_name} ${bikeDetails.model_name}`;
+        const description = bikeDetails.description;
+        const availability = bikeDetails.availability;
+        const pricePerDay = bikeDetails.price_per_day;
+        const pricePerMonth = bikeDetails.price_per_month;
+        const locationCity = `${bikeDetails.location}, ${bikeDetails.city}`;
+
+        // Insert details into HTML elements
+        document.getElementById('bike-name').innerText = brandModel;
+        document.getElementById('bike-location').innerText = locationCity;
+        document.getElementById('bike-availability').innerText = availability;
+        document.getElementById('bike-price').innerHTML = `<strong>$${pricePerDay}/day</strong> and <strong>$${pricePerMonth}/month</strong>`;
+    }
+    const checkoutButton = document.getElementById('checkoutButton');
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', function() {
+            window.location.href = 'checkout.html';
+        });
+    }
+});
+
+
+
+
+</script>
+
+  <!-- Initialize Materialize Components -->
+  
+</body>
+</html>
