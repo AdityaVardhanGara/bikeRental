@@ -345,6 +345,10 @@
         }
     });
     document.addEventListener('DOMContentLoaded', function() {
+       // user name
+       const loginButton = document.querySelector('.login-btn');
+        const userName = localStorage.getItem('name');
+        loginButton.innerHTML = `<i class="fa fa-user" aria-hidden="true"></i> ${userName}`;
     // Retrieve bike details from local storage
     const bikeDetailsString = localStorage.getItem('bikeDetails');
     if (bikeDetailsString) {

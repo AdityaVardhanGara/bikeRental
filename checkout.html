@@ -292,6 +292,10 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
   $(document).ready(function(){
+     // user name
+     const loginButton = document.querySelector('.login-btn');
+        const userName = localStorage.getItem('name');
+        loginButton.innerHTML = `<i class="fa fa-user" aria-hidden="true"></i> ${userName}`;
     // Expand the first section by default
     $('#collapseAddress').addClass('show');
 

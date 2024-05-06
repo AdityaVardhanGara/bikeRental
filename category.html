@@ -350,7 +350,7 @@
     </div>
     <hr class="border-t-2 border-gray-200 mx-6 my-4"> <!-- Added spacing and thicker border -->
     <div class="flex justify-between px-6 py-2">
-        <button class="btn btn-primary btn-sm mr-2 checkout-btn" data-bike-details='${JSON.stringify(bike)}'>Check Out</button>
+        <button class="btn btn-primary btn-sm mr-2 checkout-btn" data-bike-details='${JSON.stringify(bike)}'>BOOK NOW</button>
       <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">NOTIFY</button>
     </div>
   </div>
@@ -392,6 +392,10 @@
       var instances = M.Dropdown.init(dropdowns, {
         coverTrigger: false
       });
+      // user name
+      const loginButton = document.querySelector('.login-btn');
+        const userName = localStorage.getItem('name');
+        loginButton.innerHTML = `<i class="fa fa-user" aria-hidden="true"></i> ${userName}`;
       var sideNavs = document.querySelectorAll('.sidenav');
       var sideNavInstances = M.Sidenav.init(sideNavs);
 

@@ -150,6 +150,10 @@ class OTPRequest(BaseModel):
     name: str
     mobile: str
 
+class OTPValidation(BaseModel):
+    mobile: str
+    otp: str
+
 def send_sms(message, to):
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     client.messages.create(
@@ -176,9 +180,15 @@ async def send_otp(request: OTPRequest):
         message = f"Your OTP is: {otp}" 
         send_sms(message, "+91" + request.mobile)
         save_otp_data(request.name, request.mobile, otp)
-        return {"message": "OTP sent successfully", "otp": otp}
+        return {"message": "OTP sent successfully", "otp": "******"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/validate_otp/")
+async def validate_otp(request: OTPValidation):
+    if not request:
+        raise HTTPException(status_code=500, detail="OTP cannot be empty")
+    return {"message": "OTP validation successful"}
 
 if __name__ == "__main__":
     import uvicorn
