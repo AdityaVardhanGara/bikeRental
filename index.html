@@ -580,7 +580,7 @@ function submitForm() {
     const otp = document.getElementById('otp').value;
 
     // Make a POST request to the FastAPI endpoint
-    fetch('http://localhost:8000/validate_otp/', {
+    fetch('https://x4um3putzcgwnwz4v2t6oei5ty0dxkas.lambda-url.ap-south-1.on.aws/validate_otp/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
