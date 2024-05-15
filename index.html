@@ -85,39 +85,12 @@
       position: relative;
       width: 100%;
     }
-    /* Search container */
-    .search-container {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: white;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-      width: 60%; /* Set width to 60% of total screen width */
+    
+    .text-custom-color {
+    color: #FF565F;
     }
-    /* Search bar */
-    .search-bar {
-      display: flex;
-      align-items: center;
-    }
-    .search-bar select {
-      margin-right: 10px;
-    }
-    .search-bar input[type="text"] {
-      flex: 1;
-      border: none;
-      outline: none;
-    }
-    .search-bar button {
-      background-color: #FF565F;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 5px 15px;
-      cursor: pointer;
-    }
+
+
     #footer {
     bottom: 0;
     width: 100%;
@@ -159,35 +132,6 @@
 
   <div class="static-photo">
     <img src="src/bike5.jpg" alt="Static Photo" class="static-photo">
-    <!-- Search Bar -->
-    <div class="container search-container-wrapper">
-      <div class="row">
-        <div class="col s12">
-          <div class="search-container" style="background-color: rgba(169, 169, 169, 0.5);">
-            <form>
-              <div class="input-field col s3">
-                <select>
-                  <option value="place">Place</option>
-                  <option value="color">Color</option>
-                  <option value="type">Type</option>
-                </select>
-                <label>Search By</label>
-              </div>
-              <div class="input-field col s6">
-                <input id="search" type="text" class="validate">
-                <label for="search">Search...</label>
-              </div>
-              <div class="input-field col s3">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Search
-                  <i class="material-icons right">search</i>
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    
   </div>
   
   <div class="flex flex-wrap">
@@ -440,41 +384,43 @@
         };
 
         data.forEach(bike => {
-            const card = `
-            <div class="col-md-3">
-  <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white relative">
-    <img class="w-full" src="src/bike6.jpg" alt="${bike.brand_name} ${bike.model_name}" />
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">${bike.brand_name} <span class="text-green-500">${bike.model_name}</span></div>
-      <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="px-6 pt-4 pb-2 flex justify-between">
-      <div>
-        <span class="text-sm text-gray-700">${bike.city}, ${bike.location}</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_month} / month</span>
+          const card = `
+              <div class="col-md-3">
+                  <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white relative">
+                      <img class="w-full" src="src/bike6.jpg" alt="${bike.brand_name} ${bike.model_name}" />
+                      <div class="px-6 py-4">
+                          <div class="font-bold text-xl mb-2">${bike.brand_name} <span class="text-custom-color">${bike.model_name}</span></div>
+                          <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                      <div class="px-6 pt-4 pb-2 flex justify-between">
+                          <div>
+                              <span class="text-sm text-gray-700">${bike.city}, ${bike.location}</span>
+                              <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_month} / month</span>
+                          </div>
+                          <div>
+                              <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700 mr-2 mb-2">${bike.availability}</span>
+                              <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_day} / day</span>
+                          </div>
+                      </div>
+                      <div class="px-6">
+                          <div class="flex items-center">
+                              <svg class="fill-current text-green-500 w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                  <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-18a8 8 0 100 16 8 8 0 000-16zm1 9H9v5h2V11zm0-4H9V6h2v1z" />
+                              </svg>
+                              <span class="text-sm text-gray-700">${bike.city}, ${bike.location}</span>
+                          </div>
+                      </div>
+                      <hr class="border-t-2 border-gray-200 mx-6 my-4"> <!-- Added spacing and thicker border -->
+                      <div class="flex justify-between px-6 py-2">
+                          ${
+                              bike.availability.toLowerCase() === 'available' 
+                              ? `<div class="flex justify-end"><button class="btn btn-primary btn-sm mr-2 checkout-btn" data-bike-details='${JSON.stringify(bike)}'>BOOK NOW</button></div>`
+                              : `<div class="flex justify-end"><button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">NOTIFY</button></div>`
+                          }
+                      </div>
+                  </div>
+              </div>`;
 
-      </div>
-      <div class="flex flex-wrap">
-        <span class="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-green-700 mr-2 mb-2">${bike.availability}</span>
-        <span class="inline-block bg-zinc-200 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2">₹${bike.price_per_day} / day</span>
-      </div>
-    </div>
-    <div class="px-6">
-      <div class="flex items-center">
-        <svg class="fill-current text-green-500 w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <path d="M10 20a10 10 0 110-20 10 10 0 010 20zm0-18a8 8 0 100 16 8 8 0 000-16zm1 9H9v5h2V11zm0-4H9V6h2v1z" />
-        </svg>
-        <span class="text-sm text-gray-700">${bike.city}, ${bike.location}</span>
-      </div>
-    </div>
-    <hr class="border-t-2 border-gray-200 mx-6 my-4"> <!-- Added spacing and thicker border -->
-    <div class="flex justify-between px-6 py-2">
-      <button class="btn btn-primary btn-sm mr-2 checkout-btn" data-bike-details='${JSON.stringify(bike)}'>BOOK NOW</button>
-      <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">NOTIFY</button>
-    </div>
-  </div>
-</div>
-            `;
 
             if (addedCardsCount[bike.category.toLowerCase()] < maxCardsPerCategory) {
                 if (bike.category.toLowerCase() === 'bike') {
